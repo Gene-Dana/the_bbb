@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:the_bbb/btns.dart';
 import 'package:the_bbb/client_logos.dart';
+import 'package:the_bbb/final_message.dart';
+import 'package:the_bbb/footer.dart';
 import 'package:the_bbb/opening.dart';
 import 'package:the_bbb/testimonials.dart';
 
@@ -32,13 +34,14 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
           ),
           titleLarge: const TextStyle(
-            fontSize: 30,
-            fontStyle: FontStyle.italic,
+            fontSize: 48,
+            fontWeight: FontWeight.bold,
           ),
           bodySmall: const TextStyle(
             fontSize: 20,
             color: Colors.white,
           ),
+          bodyMedium: const TextStyle(fontSize: 20, color: Colors.black),
         ),
       ),
       home: const MyHomePage(),
@@ -92,7 +95,8 @@ class MyHomePage extends StatelessWidget {
                 const Opening(),
                 const ClientLogos(),
                 const Testimonials(),
-                Container(color: Colors.green, height: 150.0),
+                const FinalMessage(),
+                const Footer(),
               ],
             ),
           ),
@@ -115,25 +119,19 @@ class NavElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: TextButton(
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.all(16.0),
-              textStyle: const TextStyle(fontSize: 20),
-            ),
-            onPressed: () {},
-            child: Text(
-              name,
-              style: Theme.of(context).textTheme.displaySmall,
-            )));
-
-    //   child: Container(
-    //       width: 100,
-    //       child: Text(
-    //         name,
-    //         style: Theme.of(context).textTheme.displaySmall,
-    //       )),
-    // );
+      padding: const EdgeInsets.all(8.0),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.all(16.0),
+          textStyle: const TextStyle(fontSize: 20),
+        ),
+        onPressed: () {},
+        child: Text(
+          name,
+          style: Theme.of(context).textTheme.displaySmall,
+        ),
+      ),
+    );
   }
 }

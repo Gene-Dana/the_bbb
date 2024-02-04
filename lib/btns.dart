@@ -11,7 +11,7 @@ class MainBtn extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 120.0),
       child: SizedBox(
-        width: 180,
+        width: 200,
         height: 60,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(100),
