@@ -12,7 +12,7 @@ class Opening extends StatelessWidget {
         child: Stack(
           children: [
             Positioned.fill(
-                top: 300.0,
+                top: 200.0,
                 right: -800.0,
                 child: Image.asset('assets/abstract.png')),
             Padding(
