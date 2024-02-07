@@ -43,7 +43,7 @@ class _ReviewsBodyState extends State<ReviewsBody> {
         duration: Duration(milliseconds: 700));
     print('bulding body');
     return Container(
-      height: 400,
+      height: 500,
       child: Container(
         height: 200,
         child: BlocBuilder<ReviewsBloc, ReviewsState>(
@@ -67,27 +67,46 @@ class _ReviewsBodyState extends State<ReviewsBody> {
                 final currentReview = widget.reviews[currentIndex];
                 return Container(
                   color: Color.fromARGB(255, 232, 233, 251),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // logo
-                      Image.network(currentReview.logoLink),
-                      // quote
-                      Text(currentReview.review),
-                      // person
-                      Row(children: [
-                        Image.network(currentReview.userLink),
-                        Column(
-                          children: [
-                            Text(currentReview.username),
-                            Text(currentReview.userCompany),
-                          ],
-                        )
-                      ]),
-                      // nav
-                      ReviewNav(),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 128),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // logo
+                        Container(
+                            height: 50,
+                            child: Image.network(currentReview.logoLink)),
+                        // quote
+                        Container(
+                          width: MediaQuery.of(context).size.width * .7,
+                          child: Text(currentReview.review,
+                              style: TextStyle(
+                                  fontSize: 32, fontWeight: FontWeight.bold)),
+                        ),
+                        // person
+                        Row(children: [
+                          Container(
+                              height: 150,
+                              child: Image.network(currentReview.userLink)),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(currentReview.username,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                Text(currentReview.userCompany),
+                              ],
+                            ),
+                          )
+                        ]),
+                        // nav
+                        ReviewNav(),
+                      ],
+                    ),
                   ),
                 );
               },
@@ -104,6 +123,6 @@ class ReviewNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(height: 3, width: 12);
+    return Container(color: Colors.black, height: 4, width: 24);
   }
 }

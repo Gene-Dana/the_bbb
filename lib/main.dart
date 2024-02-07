@@ -109,8 +109,8 @@ class MyHomePage extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                const Opening(),
-                const ClientLogos(),
+                // const Opening(),
+                // const ClientLogos(),
                 const ReviewsPage(),
                 const FinalMessage(),
                 const Footer(),
