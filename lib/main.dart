@@ -1,51 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:review_repository/review_repository.dart';
+import 'package:the_bbb/bloc_observer.dart';
 import 'package:the_bbb/btns.dart';
 import 'package:the_bbb/client_logos.dart';
 import 'package:the_bbb/final_message.dart';
 import 'package:the_bbb/footer.dart';
 import 'package:the_bbb/opening.dart';
-import 'package:the_bbb/testimonials.dart';
+import 'package:the_bbb/reviews/bloc/reviews_bloc.dart';
+import 'package:the_bbb/reviews/view/reviews_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final reviewRepository = const ReviewRepository();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Bloc.observer = AppBlocObserver();
     return MaterialApp(
-      title: 'The Boring Bookkeeping Business',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 58, 62, 183)),
-        useMaterial3: true,
-        textTheme: TextTheme(
-          displayLarge: GoogleFonts.archivoBlack(
-            fontSize: 100,
-            color: Colors.white,
+        title: 'The Boring Bookkeeping Business',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 58, 62, 183)),
+          useMaterial3: true,
+          textTheme: TextTheme(
+            displayLarge: GoogleFonts.archivoBlack(
+              fontSize: 100,
+              color: Colors.white,
+            ),
+            displaySmall: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            titleLarge: const TextStyle(
+              fontSize: 48,
+              fontWeight: FontWeight.bold,
+            ),
+            bodySmall: const TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+            ),
+            bodyMedium: const TextStyle(fontSize: 20, color: Colors.black),
           ),
-          displaySmall: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-          titleLarge: const TextStyle(
-            fontSize: 48,
-            fontWeight: FontWeight.bold,
-          ),
-          bodySmall: const TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-          ),
-          bodyMedium: const TextStyle(fontSize: 20, color: Colors.black),
         ),
-      ),
-      home: const MyHomePage(),
+        home: MyProviderPage(reviewRepository: reviewRepository));
+  }
+}
+
+class MyProviderPage extends StatelessWidget {
+  const MyProviderPage({super.key, required ReviewRepository reviewRepository});
+
+  @override
+  Widget build(BuildContext context) {
+    return RepositoryProvider(
+      create: (context) => const ReviewRepository(),
+      child: const MyHomePage(),
     );
+    ;
   }
 }
 
@@ -81,9 +100,7 @@ class MyHomePage extends StatelessWidget {
             leadingWidth: 400,
             title:
                 const Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              NavElement(name: 'link1', link: 'link'),
-              NavElement(name: 'link1', link: 'link'),
-              NavElement(name: 'link1', link: 'link')
+              NavElement(name: 'Services', link: 'link'),
             ]),
             actions: const [
               MainBtn(title: 'Contact Us', link: ''),
@@ -94,7 +111,7 @@ class MyHomePage extends StatelessWidget {
               [
                 const Opening(),
                 const ClientLogos(),
-                const Testimonials(),
+                const ReviewsPage(),
                 const FinalMessage(),
                 const Footer(),
               ],
