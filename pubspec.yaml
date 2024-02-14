@@ -16,6 +16,7 @@ dependencies:
   review_repository:
     path: packages/review_repository
   infinite_carousel: ^1.0.3
+  flow_builder: ^0.0.10
 
 
   cupertino_icons: ^1.0.6

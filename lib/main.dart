@@ -7,25 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:review_repository/review_repository.dart';
 
 import 'package:the_bbb/bloc_observer.dart';
-
-import 'package:the_bbb/btns.dart';
-
-import 'package:the_bbb/client_logos.dart';
-
-import 'package:the_bbb/final_message.dart';
-
-import 'package:the_bbb/footer.dart';
-import 'package:the_bbb/mobile/mClientLogos.dart';
-import 'package:the_bbb/mobile/mFinalMessage.dart';
-import 'package:the_bbb/mobile/mFooter.dart';
-import 'package:the_bbb/mobile/mOpening.dart';
-import 'package:the_bbb/mobile/mReviewsPage.dart';
-
-import 'package:the_bbb/opening.dart';
-
-import 'package:the_bbb/reviews/bloc/reviews_bloc.dart';
-
-import 'package:the_bbb/reviews/view/reviews_page.dart';
+import 'package:the_bbb/home/view/home_flow.dart';
 
 void main() {
   runApp(MyApp());
@@ -52,6 +34,16 @@ class MyApp extends StatelessWidget {
             displayLarge: GoogleFonts.archivoBlack(
               fontSize: 100,
               color: Colors.white,
+            ),
+            titleMedium: const TextStyle(
+              fontSize: 48,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+            titleSmall: const TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
             displaySmall: const TextStyle(
               fontSize: 18,
@@ -80,140 +72,17 @@ class MyProviderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider(
       create: (context) => const ReviewRepository(),
-      child: ResponsiveWidget(),
-    );
-
-    ;
-  }
-}
-
-class ResponsiveWidget extends StatelessWidget {
-  const ResponsiveWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size.width;
-    return size >= 800 ? MyHomePage() : MyMobilePage();
-  }
-}
-
-class MyMobilePage extends StatelessWidget {
-  const MyMobilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    print('mobile');
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(1, 15, 48, 1),
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset('icon.png'),
-          ),
-          leadingWidth: 120,
-          actions: [mMainBtn(title: 'Contact Us', link: 'link')],
-        ),
-        body: ListView(children: [
-          mOpening(),
-          mClientLogos(),
-          mReviewsPage(),
-          mFinalMessage(),
-          mFooter(),
-        ]));
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: <Widget>[
-          SliverAppBar(
-            // stretch: _stretch,
-
-            onStretchTrigger: () async {
-              // Triggers when stretching
-            },
-            // [stretchTriggerOffset] describes the amount of overscroll that must occur
-            // to trigger [onStretchTrigger]
-            //
-            // Setting [stretchTriggerOffset] to a value of 300.0 will trigger
-            // [onStretchTrigger] when the user has overscrolled by 300.0 pixels.
-
-            stretchTriggerOffset: 300.0,
-
-            expandedHeight: 170.0,
-
-            pinned: true,
-
-            backgroundColor: const Color.fromRGBO(1, 15, 48, 1),
-
-            toolbarHeight: 100,
-
-            leading: Padding(
-              padding: const EdgeInsets.only(left: 128.0),
-              child: Image.asset('icon.png'),
-            ),
-
-            leadingWidth: 400,
-
-            title:
-                const Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              NavElement(name: 'Services', link: 'link'),
-            ]),
-
-            actions: const [
-              MainBtn(title: 'Contact Us', link: ''),
-            ],
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                const Opening(),
-                const ClientLogos(),
-                const ReviewsPage(),
-                const FinalMessage(),
-                const Footer(),
-              ],
-            ),
-          ),
-        ],
-      ),
+      child: HomeFlow(),
     );
   }
 }
 
-class NavElement extends StatelessWidget {
-  const NavElement({
-    super.key,
-    required this.name,
-    required this.link,
-  });
+// class HomeWidget extends StatelessWidget {
+//   const HomeWidget({super.key});
 
-  final String name;
-
-  final String link;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextButton(
-        style: TextButton.styleFrom(
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.all(16.0),
-          textStyle: const TextStyle(fontSize: 20),
-        ),
-        onPressed: () {},
-        child: Text(
-          name,
-          style: Theme.of(context).textTheme.displaySmall,
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     final size = MediaQuery.of(context).size.width;
+//     return size >= 800 ? ServicesPage() : ServicesPage();
+//   }
+// }
