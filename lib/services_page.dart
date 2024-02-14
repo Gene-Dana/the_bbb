@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:the_bbb/btns.dart';
 import 'package:the_bbb/home/cubit/home_cubit.dart';
 import 'package:the_bbb/home/view/my_home_page.dart';
@@ -24,7 +27,8 @@ class ServicesPage extends StatelessWidget {
         leadingWidth: 400,
         title: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           NavElement(
-              name: 'Home',
+              name: 'Services',
+              selected: true,
               link: 'link',
               onPressed: () {
                 context.read<HomeCubit>().setLanding();
@@ -41,101 +45,160 @@ class ServicesPage extends StatelessWidget {
             _Opening(),
             _Second(),
             ServiceSection(
-              title: 'Bookkeeping Services',
-              subtitle:
-                  'Expert bookkeeping services delivered with punctuality ',
-              icon: Image.asset('icon.png'),
-              serviceList: const [
-                ServiceList(
-                  color: Colors.yellow,
-                  title: 'Accounts Payable Services',
-                  subtitle: 'subtitle',
-                  services: [
-                    'Invoice Processing',
-                    'Vendor Management',
-                    'Cash Flow Management',
-                    'Expense Reconciliation',
-                    'Electronic Payments Setup',
-                  ],
-                ),
-                ServiceList(
-                  color: Colors.yellow,
-                  title: 'Accounts Payable Services',
-                  subtitle: 'subtitle',
-                  services: [
-                    'Invoice Processing',
-                    'Vendor Management',
-                    'Cash Flow Management',
-                    'Expense Reconciliation',
-                    'Electronic Payments Setup',
-                  ],
-                ),
-              ],
+              title: 'Accounts Payable Services',
+              subtitle: 'Utilizing industry best-practices',
+              icon: Image.asset('icon1.png'),
+              serviceList: ServiceList(
+                color: Colors.blue,
+                services: [
+                  Services(
+                    service: 'Invoice Processing',
+                    descript:
+                        'Managing and processing incoming invoices from vendors or suppliers',
+                  ),
+                  Services(
+                    service: 'Payment Processing',
+                    descript:
+                        'Executing payments to suppliers in accordance with agreed terms.',
+                  ),
+                  Services(
+                    service: 'Vendor Management',
+                    descript:
+                        'Maintaining vendor information, including contact details, payment terms, and tax information.',
+                  ),
+                  Services(
+                    service: 'Expense Reconciliation',
+                    descript:
+                        'Matching invoices with purchase orders and proof of delivery to ensure accuracy.',
+                  ),
+                  Services(
+                    service: 'Electronic Payments Setup',
+                    descript:
+                        'Implementing electronic payment systems for efficient transfers.',
+                  ),
+                  Services(
+                    service: 'Cash Flow Management',
+                    descript:
+                        'Forecasting and managing cash outflows to optimize financial resources.',
+                  ),
+                ],
+              ),
             ),
             ServiceSection(
-              title: 'Bookkeeping Services',
-              subtitle:
-                  'Expert bookkeeping services delivered with punctuality ',
-              icon: Image.asset('icon.png'),
-              serviceList: const [
-                ServiceList(
-                  color: Colors.blue,
-                  title: 'Accounts Payable Services',
-                  subtitle: 'subtitle',
-                  services: [
-                    'Invoice Processing',
-                    'Vendor Management',
-                    'Cash Flow Management',
-                    'Expense Reconciliation',
-                    'Electronic Payments Setup',
-                  ],
-                ),
-                ServiceList(
-                  color: Colors.blue,
-                  title: 'Accounts Payable Services',
-                  subtitle: 'subtitle',
-                  services: [
-                    'Invoice Processing',
-                    'Vendor Management',
-                    'Cash Flow Management',
-                    'Expense Reconciliation',
-                    'Electronic Payments Setup',
-                  ],
-                ),
-              ],
+              title: 'Accounts Receivable Services',
+              subtitle: 'Proactive and punctual',
+              icon: Image.asset('icon2.png'),
+              serviceList: ServiceList(
+                color: Colors.pink,
+                services: [
+                  Services(
+                    service: 'Invoice Generation',
+                    descript:
+                        'Creating and sending invoices to customers for goods or services delivered.',
+                  ),
+                  Services(
+                    service: 'Payment Tracking',
+                    descript:
+                        'Monitoring incoming payments and applying them to the corresponding invoices.',
+                  ),
+                  Services(
+                    service: 'Customer Management',
+                    descript:
+                        'Managing customer accounts and maintaining up-to-date contact and billing information.',
+                  ),
+                  Services(
+                    service: 'Credit Control',
+                    descript:
+                        'Setting credit limits and terms for customers, and monitoring adherence.',
+                  ),
+                  Services(
+                    service: 'Dispute Resolution',
+                    descript:
+                        'Managing queries and disputes related to invoices from customers.',
+                  ),
+                  Services(
+                    service: 'Aging Reports',
+                    descript:
+                        'Preparing reports on outstanding invoices to prioritize collection efforts.',
+                  ),
+                ],
+              ),
             ),
             ServiceSection(
-              title: 'Bookkeeping Services',
-              subtitle:
-                  'Expert bookkeeping services delivered with punctuality ',
-              icon: Image.asset('icon.png'),
-              serviceList: const [
-                ServiceList(
-                  color: Colors.red,
-                  title: 'Accounts Payable Services',
-                  subtitle: 'subtitle',
-                  services: [
-                    'Invoice Processing',
-                    'Vendor Management',
-                    'Cash Flow Management',
-                    'Expense Reconciliation',
-                    'Electronic Payments Setup',
-                  ],
-                ),
-                ServiceList(
-                  color: Colors.red,
-                  title: 'Accounts Payable Services',
-                  subtitle: 'subtitle',
-                  services: [
-                    'Invoice Processing',
-                    'Vendor Management',
-                    'Cash Flow Management',
-                    'Expense Reconciliation',
-                    'Electronic Payments Setup',
-                  ],
-                ),
-              ],
-            )
+              title: 'Credit Collections Services',
+              subtitle: 'Optional collection services',
+              icon: Image.asset('icon3.png'),
+              serviceList: ServiceList(
+                color: Colors.yellow,
+                services: [
+                  Services(
+                    service: 'Debt Recovery',
+                    descript:
+                        'Implementing strategies to recover overdue payments from customers.',
+                  ),
+                  Services(
+                    service: 'Legal Proceedings Support',
+                    descript:
+                        'Assisting with the legal aspects of debt collection, if necessary.',
+                  ),
+                  Services(
+                    service: 'Credit Reporting',
+                    descript:
+                        'Reporting credit activity to credit bureaus as part of risk management.',
+                  ),
+                  Services(
+                    service: 'Negotiation and Settlement',
+                    descript:
+                        'Working with debtors to negotiate payment plans or settlements.',
+                  ),
+                  Services(
+                    service: 'Customer Communication',
+                    descript:
+                        'Managing communications with customers regarding their account status and payment reminders.',
+                  ),
+                ],
+              ),
+            ),
+            ServiceSection(
+              title: 'Auditing Services',
+              subtitle: 'Thorough and accurate auditing',
+              icon: Image.asset('icon4.png'),
+              serviceList: ServiceList(
+                color: Colors.red,
+                services: [
+                  Services(
+                    service: 'Financial Audits',
+                    descript:
+                        'Examining an organizations financial statements to ensure accuracy and compliance with accounting standards.',
+                  ),
+                  Services(
+                    service: 'Compliance Audits',
+                    descript:
+                        'Assessing compliance with relevant laws, regulations, and internal policies.',
+                  ),
+                  Services(
+                    service: 'Operational Audits',
+                    descript:
+                        'Evaluating the efficiency and effectiveness of operational processes.',
+                  ),
+                  Services(
+                    service: 'Risk Assessment',
+                    descript:
+                        'Identifying and assessing financial risks and recommending mitigation strategies.',
+                  ),
+                  Services(
+                    service: 'Internal Controls Evaluation',
+                    descript:
+                        'Reviewing and assessing the effectiveness of internal control systems.',
+                  ),
+                  Services(
+                    service: 'Tax Audits',
+                    descript:
+                        'Assisting with audits by tax authorities, including preparation and support during the process.',
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -222,8 +285,13 @@ class _Second extends StatelessWidget {
                 child: SizedBox(
                   width: 250,
                   child: Text(
-                      'Ryan and his son enjoy and reside in Portland, Oregon',
-                      style: Theme.of(context).textTheme.titleSmall),
+                    'Ryan and his son enjoy and reside in Portland, Oregon',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(fontSize: 24),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
               Container(
@@ -286,7 +354,7 @@ class ServiceSection extends StatelessWidget {
   final String title;
   final Image icon;
   final String subtitle;
-  final List<ServiceList> serviceList;
+  final ServiceList serviceList;
 
   @override
   Widget build(BuildContext context) {
@@ -304,15 +372,30 @@ class ServiceSection extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 24.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(subtitle),
-                      icon,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(height: 100, child: icon),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: 300,
+                          child: Text(subtitle,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(fontSize: 24)),
+                        ),
+                      ),
                     ],
                   ),
-                  ...serviceList,
+                  serviceList,
                 ],
               ),
             ),
@@ -326,15 +409,11 @@ class ServiceSection extends StatelessWidget {
 class ServiceList extends StatelessWidget {
   const ServiceList({
     super.key,
-    required this.title,
-    required this.subtitle,
     required this.services,
     required this.color,
   });
 
-  final String title;
-  final String subtitle;
-  final List<String> services;
+  final List<Services> services;
   final Color color;
 
   @override
@@ -342,23 +421,11 @@ class ServiceList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Text(
-            title,
-            style:
-                Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 24),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: Text(
-            subtitle,
-            // style: Theme.of(context).textTheme.subtitle1,
-          ),
-        ),
-        ...services
-            .map((service) => ServiceTile(color: color, service: service)),
+        ...services.map((service) => ServiceTile(
+              color: color,
+              service: service.service,
+              descript: service.descript,
+            )),
       ],
     );
   }
@@ -366,22 +433,77 @@ class ServiceList extends StatelessWidget {
 
 class ServiceTile extends StatelessWidget {
   final String service;
+  final String descript;
   final Color color;
 
-  const ServiceTile({Key? key, required this.service, required this.color})
+  const ServiceTile(
+      {Key? key,
+      required this.service,
+      required this.descript,
+      required this.color})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
+    return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Icon(Icons.check_circle_outline, color: color),
       ),
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Text(service),
+        child: SizedBox(
+          width: 800,
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: service + ': ',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                TextSpan(
+                  text: descript,
+                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     ]);
   }
+}
+
+class Services {
+  final String service;
+  final String descript;
+  Services({
+    required this.service,
+    required this.descript,
+  });
+
+  Services copyWith({
+    String? service,
+    String? descript,
+  }) {
+    return Services(
+      service: service ?? this.service,
+      descript: descript ?? this.descript,
+    );
+  }
+
+  @override
+  String toString() => 'Services(service: $service, descript: $descript)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Services &&
+        other.service == service &&
+        other.descript == descript;
+  }
+
+  @override
+  int get hashCode => service.hashCode ^ descript.hashCode;
 }

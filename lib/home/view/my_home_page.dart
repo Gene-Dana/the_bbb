@@ -55,6 +55,7 @@ class MyHomePage extends StatelessWidget {
             title: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               NavElement(
                   name: 'Services',
+                  selected: false,
                   link: 'link',
                   onPressed: () {
                     context.read<HomeCubit>().setServices();
@@ -88,12 +89,14 @@ class NavElement extends StatelessWidget {
     required this.name,
     required this.link,
     this.onPressed,
+    required this.selected,
   });
 
   final String name;
 
   final String link;
   final VoidCallback? onPressed;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +111,10 @@ class NavElement extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           name,
-          style: Theme.of(context).textTheme.displaySmall,
+          style: Theme.of(context)
+              .textTheme
+              .displaySmall!
+              .copyWith(color: selected ? Colors.blue : Colors.white),
         ),
       ),
     );
