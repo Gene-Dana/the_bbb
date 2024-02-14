@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MainBtn extends StatelessWidget {
-  const MainBtn({super.key, required this.title, required this.link});
+  const MainBtn(
+      {super.key, required this.title, required this.link, this.onPressed});
 
   final String title;
   final String link;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {

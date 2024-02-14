@@ -6,11 +6,11 @@ part 'home_state.dart';
 class HomeCubit extends Cubit<HomeScreenState> {
   HomeCubit() : super(HomeScreenState.landing);
 
-  void landing() {
+  void setLanding() {
     emit(HomeScreenState.landing);
+  }
 
-    void services() {
-      emit(HomeScreenState.services);
-    }
+  void setServices() {
+    emit(HomeScreenState.services);
   }
 }

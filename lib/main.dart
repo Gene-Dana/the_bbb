@@ -72,7 +72,7 @@ class MyProviderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider(
       create: (context) => const ReviewRepository(),
-      child: HomeFlow(),
+      child: HomeView(),
     );
   }
 }

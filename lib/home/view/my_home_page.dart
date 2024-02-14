@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_bbb/btns.dart';
 import 'package:the_bbb/client_logos.dart';
 import 'package:the_bbb/final_message.dart';
 import 'package:the_bbb/footer.dart';
+import 'package:the_bbb/home/cubit/home_cubit.dart';
 import 'package:the_bbb/opening.dart';
 import 'package:the_bbb/reviews/view/reviews_page.dart';
 
@@ -39,14 +41,24 @@ class MyHomePage extends StatelessWidget {
 
             leading: Padding(
               padding: const EdgeInsets.only(left: 128.0),
-              child: Image.asset('icon.png'),
+              child: InkWell(
+                  onTap: () {
+                    {
+                      context.read<HomeCubit>().setLanding();
+                    }
+                  },
+                  child: Image.asset('icon.png')),
             ),
 
             leadingWidth: 400,
 
-            title:
-                const Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              NavElement(name: 'Services', link: 'link'),
+            title: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+              NavElement(
+                  name: 'Services',
+                  link: 'link',
+                  onPressed: () {
+                    context.read<HomeCubit>().setServices();
+                  }),
             ]),
 
             actions: const [
@@ -75,11 +87,13 @@ class NavElement extends StatelessWidget {
     super.key,
     required this.name,
     required this.link,
+    this.onPressed,
   });
 
   final String name;
 
   final String link;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +105,7 @@ class NavElement extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           textStyle: const TextStyle(fontSize: 20),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           name,
           style: Theme.of(context).textTheme.displaySmall,

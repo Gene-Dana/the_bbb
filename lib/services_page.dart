@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_bbb/btns.dart';
+import 'package:the_bbb/home/cubit/home_cubit.dart';
 import 'package:the_bbb/home/view/my_home_page.dart';
 
 class ServicesPage extends StatelessWidget {
@@ -13,11 +15,20 @@ class ServicesPage extends StatelessWidget {
         toolbarHeight: 100,
         leading: Padding(
           padding: const EdgeInsets.only(left: 128.0),
-          child: Image.asset('icon.png'),
+          child: InkWell(
+              onTap: () {
+                context.read<HomeCubit>().setLanding();
+              },
+              child: Image.asset('icon.png')),
         ),
         leadingWidth: 400,
-        title: const Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          NavElement(name: 'Services', link: 'link'),
+        title: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          NavElement(
+              name: 'Home',
+              link: 'link',
+              onPressed: () {
+                context.read<HomeCubit>().setLanding();
+              }),
         ]),
         actions: const [
           MainBtn(title: 'Contact Us', link: ''),

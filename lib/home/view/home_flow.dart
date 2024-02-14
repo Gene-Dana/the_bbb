@@ -6,18 +6,12 @@ import 'package:the_bbb/home/view/my_home_page.dart';
 import 'package:the_bbb/services_page.dart';
 
 class HomeView extends StatelessWidget {
-  static Route<HomeScreenState> route() {
-    return MaterialPageRoute(
-      builder: (_) => BlocProvider(
-        create: (_) => HomeCubit(),
-        child: HomeView(),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return const HomeFlow();
+    return BlocProvider(
+      create: (_) => HomeCubit(),
+      child: const HomeFlow(),
+    );
   }
 }
 
