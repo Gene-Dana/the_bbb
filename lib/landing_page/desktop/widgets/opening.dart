@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:the_bbb/btns.dart';
+import 'package:the_bbb/widgets/btns.dart';
 
 class Opening extends StatelessWidget {
   const Opening({super.key});

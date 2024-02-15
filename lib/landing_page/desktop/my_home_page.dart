@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:the_bbb/btns.dart';
-import 'package:the_bbb/client_logos.dart';
-import 'package:the_bbb/final_message.dart';
-import 'package:the_bbb/footer.dart';
+import 'package:the_bbb/widgets/btns.dart';
+import 'package:the_bbb/landing_page/desktop/widgets/client_logos.dart';
+import 'package:the_bbb/landing_page/desktop/widgets/final_message.dart';
+import 'package:the_bbb/landing_page/desktop/widgets/footer.dart';
 import 'package:the_bbb/home/cubit/home_cubit.dart';
-import 'package:the_bbb/opening.dart';
+import 'package:the_bbb/landing_page/desktop/widgets/opening.dart';
 import 'package:the_bbb/reviews/view/reviews_page.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -13,6 +13,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('desktop');
     return Scaffold(
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),

@@ -2,8 +2,9 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_bbb/home/cubit/home_cubit.dart';
-import 'package:the_bbb/home/view/my_home_page.dart';
-import 'package:the_bbb/services_page.dart';
+import 'package:the_bbb/landing_page/desktop/my_home_page.dart';
+import 'package:the_bbb/landing_page/landing_page.dart';
+import 'package:the_bbb/services_page/services_page.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -25,10 +26,11 @@ class HomeFlow extends StatelessWidget {
       onGeneratePages: (HomeScreenState state, List<Page> pages) {
         switch (state) {
           case HomeScreenState.landing:
-            return [MyHomePage.page()];
+            return [LandingPage.page()];
           case HomeScreenState.services:
-          default:
             return [ServicesPage.page()];
+          default:
+            return [LandingPage.page()];
         }
       },
     );

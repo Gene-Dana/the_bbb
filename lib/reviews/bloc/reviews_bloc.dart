@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:review_repository/models/review.dart';
 import 'package:review_repository/review_repository.dart';
-import 'package:the_bbb/ticker.dart';
+import 'package:the_bbb/reviews/widgets/ticker.dart';
 part 'reviews_event.dart';
 part 'reviews_state.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:review_repository/review_repository.dart';
-import 'package:the_bbb/mobile/mreviews_body.dart';
+import 'package:the_bbb/landing_page/mobile/widgets/mreviews_body.dart';
 import 'package:the_bbb/reviews/bloc/bloc.dart';
 
 /// {@template reviews_page}

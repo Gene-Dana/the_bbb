@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:review_repository/review_repository.dart';
 
-import 'package:the_bbb/bloc_observer.dart';
+import 'package:the_bbb/widgets/bloc_observer.dart';
 import 'package:the_bbb/home/view/home_flow.dart';
 
 void main() {
@@ -76,13 +76,3 @@ class MyProviderPage extends StatelessWidget {
     );
   }
 }
-
-// class HomeWidget extends StatelessWidget {
-//   const HomeWidget({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final size = MediaQuery.of(context).size.width;
-//     return size >= 800 ? ServicesPage() : ServicesPage();
-//   }
-// }

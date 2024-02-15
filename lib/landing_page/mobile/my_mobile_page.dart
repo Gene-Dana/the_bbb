@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:the_bbb/btns.dart';
-import 'package:the_bbb/mobile/mClientLogos.dart';
-import 'package:the_bbb/mobile/mFinalMessage.dart';
-import 'package:the_bbb/mobile/mFooter.dart';
-import 'package:the_bbb/mobile/mOpening.dart';
-import 'package:the_bbb/mobile/mReviewsPage.dart';
+import 'package:the_bbb/widgets/btns.dart';
+import 'package:the_bbb/landing_page/mobile/widgets/mClientLogos.dart';
+import 'package:the_bbb/landing_page/mobile/widgets/mFinalMessage.dart';
+import 'package:the_bbb/landing_page/mobile/widgets/mFooter.dart';
+import 'package:the_bbb/landing_page/mobile/widgets/mOpening.dart';
+import 'package:the_bbb/landing_page/mobile/widgets/mReviewsPage.dart';
 
 class MyMobilePage extends StatelessWidget {
   static Page page() => MaterialPage<void>(child: MyMobilePage());

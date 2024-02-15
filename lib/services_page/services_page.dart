@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:the_bbb/btns.dart';
+import 'package:the_bbb/widgets/btns.dart';
 import 'package:the_bbb/home/cubit/home_cubit.dart';
-import 'package:the_bbb/home/view/my_home_page.dart';
+import 'package:the_bbb/landing_page/desktop/my_home_page.dart';
 
 class ServicesPage extends StatelessWidget {
-  static Page page() => MaterialPage<void>(child: ServicesPage());
+  const ServicesPage({super.key});
+
+  static Page page() => const MaterialPage<void>(child: ServicesPage());
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +42,8 @@ class ServicesPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 128.0, vertical: 32),
         child: ListView(
           children: [
-            _Opening(),
-            _Second(),
+            const _Opening(),
+            const _Second(),
             ServiceSection(
               title: 'Essential Bookkeeping Services',
               subtitle:
@@ -161,8 +163,8 @@ class ServicesPage extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 24.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 24.0),
               child: Text(
                   'For more detailed information on our service packages, please contact Ryan@Web-TaxPro.com or Christy@Web-TaxPro.com, or call us at (971) 708-2045.'),
             )
@@ -426,11 +428,13 @@ class ServiceTile extends StatelessWidget {
               children: [
                 TextSpan(
                   text: service + ': ',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 TextSpan(
                   text: descript,
-                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.normal, fontSize: 20),
                 ),
               ],
             ),
