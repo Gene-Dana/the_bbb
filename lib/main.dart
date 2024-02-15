@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
   final reviewRepository = const ReviewRepository();
 
   // This widget is the root of your application.
-
   @override
   Widget build(BuildContext context) {
     Bloc.observer = AppBlocObserver();
