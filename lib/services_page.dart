@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -45,160 +43,129 @@ class ServicesPage extends StatelessWidget {
             _Opening(),
             _Second(),
             ServiceSection(
-              title: 'Accounts Payable Services',
-              subtitle: 'Utilizing industry best-practices',
+              title: 'Essential Bookkeeping Services',
+              subtitle:
+                  'Providing the foundational financial support every business requires.',
               icon: Image.asset('icon1.png'),
               serviceList: ServiceList(
                 color: Colors.blue,
                 services: [
                   Services(
-                    service: 'Invoice Processing',
+                    service: 'Bank & Credit Card Transaction Coding',
                     descript:
-                        'Managing and processing incoming invoices from vendors or suppliers',
+                        'Accurate categorization of bank and credit card transactions to ensure your financials are always up to date.',
                   ),
                   Services(
-                    service: 'Payment Processing',
+                    service: 'Payroll Processing',
                     descript:
-                        'Executing payments to suppliers in accordance with agreed terms.',
+                        'Timely and compliant payroll processing to ensure your team is paid correctly and on time.',
                   ),
                   Services(
-                    service: 'Vendor Management',
+                    service: 'Monthly Financial Reports',
                     descript:
-                        'Maintaining vendor information, including contact details, payment terms, and tax information.',
-                  ),
-                  Services(
-                    service: 'Expense Reconciliation',
-                    descript:
-                        'Matching invoices with purchase orders and proof of delivery to ensure accuracy.',
-                  ),
-                  Services(
-                    service: 'Electronic Payments Setup',
-                    descript:
-                        'Implementing electronic payment systems for efficient transfers.',
-                  ),
-                  Services(
-                    service: 'Cash Flow Management',
-                    descript:
-                        'Forecasting and managing cash outflows to optimize financial resources.',
+                        'Regular insights into your financial health with comprehensive reports.',
                   ),
                 ],
               ),
             ),
             ServiceSection(
-              title: 'Accounts Receivable Services',
-              subtitle: 'Proactive and punctual',
+              title: 'Advanced Bookkeeping Services',
+              subtitle:
+                  'Elevate your financial operations with our expanded suite of services.',
               icon: Image.asset('icon2.png'),
               serviceList: ServiceList(
                 color: Colors.pink,
                 services: [
                   Services(
-                    service: 'Invoice Generation',
+                    service: 'Weekly Reporting',
                     descript:
-                        'Creating and sending invoices to customers for goods or services delivered.',
+                        'Gain more frequent insights with detailed weekly financial summaries.',
                   ),
                   Services(
-                    service: 'Payment Tracking',
+                    service: 'Statement Reconciliations',
                     descript:
-                        'Monitoring incoming payments and applying them to the corresponding invoices.',
+                        'Ensuring all your financial statements match up perfectly with your records.',
                   ),
                   Services(
-                    service: 'Customer Management',
+                    service: 'Month-end Close',
                     descript:
-                        'Managing customer accounts and maintaining up-to-date contact and billing information.',
+                        'Systematic completion of all accounting tasks to close your books every month.',
                   ),
                   Services(
-                    service: 'Credit Control',
+                    service: 'Advisory Services',
                     descript:
-                        'Setting credit limits and terms for customers, and monitoring adherence.',
-                  ),
-                  Services(
-                    service: 'Dispute Resolution',
-                    descript:
-                        'Managing queries and disputes related to invoices from customers.',
-                  ),
-                  Services(
-                    service: 'Aging Reports',
-                    descript:
-                        'Preparing reports on outstanding invoices to prioritize collection efforts.',
+                        'Strategic insights with Key Performance Indicators (KPIs) and in-depth management reporting.',
                   ),
                 ],
               ),
             ),
             ServiceSection(
-              title: 'Credit Collections Services',
-              subtitle: 'Optional collection services',
+              title: 'Complete Bookkeeping Services',
+              subtitle:
+                  'Our most comprehensive package for businesses seeking full financial management.',
               icon: Image.asset('icon3.png'),
               serviceList: ServiceList(
                 color: Colors.yellow,
                 services: [
                   Services(
-                    service: 'Debt Recovery',
+                    service: 'Cash Flow Forecasting',
                     descript:
-                        'Implementing strategies to recover overdue payments from customers.',
+                        'Project your companys cash flow to make informed business decisions.',
                   ),
                   Services(
-                    service: 'Legal Proceedings Support',
+                    service: 'Job Costing',
                     descript:
-                        'Assisting with the legal aspects of debt collection, if necessary.',
+                        'Detailed tracking and reporting on the costs associated with specific jobs or projects.',
                   ),
                   Services(
-                    service: 'Credit Reporting',
+                    service: 'Budgeting',
                     descript:
-                        'Reporting credit activity to credit bureaus as part of risk management.',
+                        'Assistance in planning your financial budget to align with business goals.',
                   ),
                   Services(
-                    service: 'Negotiation and Settlement',
+                    service: 'Systems Integration',
                     descript:
-                        'Working with debtors to negotiate payment plans or settlements.',
+                        'Streamlining your accounting systems for maximum efficiency.',
                   ),
                   Services(
-                    service: 'Customer Communication',
+                    service: 'Training',
                     descript:
-                        'Managing communications with customers regarding their account status and payment reminders.',
+                        'Equip your team with the knowledge to manage and understand your financial systems.',
+                  ),
+                  Services(
+                    service: 'Data Clean up & Catch Up',
+                    descript:
+                        'Address any backlogs in bookkeeping to bring your accounts up to date.',
                   ),
                 ],
               ),
             ),
             ServiceSection(
-              title: 'Auditing Services',
-              subtitle: 'Thorough and accurate auditing',
+              title: 'Specialized Support Services',
+              subtitle:
+                  'Expert services to support unique business needs and compliance.',
               icon: Image.asset('icon4.png'),
               serviceList: ServiceList(
                 color: Colors.red,
                 services: [
                   Services(
-                    service: 'Financial Audits',
+                    service: 'Audit/Tax Support',
                     descript:
-                        'Examining an organizations financial statements to ensure accuracy and compliance with accounting standards.',
+                        'Assistance during audits and tax season to ensure compliance and accuracy.',
                   ),
                   Services(
-                    service: 'Compliance Audits',
+                    service: 'Tax Preparation',
                     descript:
-                        'Assessing compliance with relevant laws, regulations, and internal policies.',
-                  ),
-                  Services(
-                    service: 'Operational Audits',
-                    descript:
-                        'Evaluating the efficiency and effectiveness of operational processes.',
-                  ),
-                  Services(
-                    service: 'Risk Assessment',
-                    descript:
-                        'Identifying and assessing financial risks and recommending mitigation strategies.',
-                  ),
-                  Services(
-                    service: 'Internal Controls Evaluation',
-                    descript:
-                        'Reviewing and assessing the effectiveness of internal control systems.',
-                  ),
-                  Services(
-                    service: 'Tax Audits',
-                    descript:
-                        'Assisting with audits by tax authorities, including preparation and support during the process.',
+                        'Professional preparation of your business taxes to maximize returns and minimize liabilities.',
                   ),
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24.0),
+              child: Text(
+                  'For more detailed information on our service packages, please contact Ryan@Web-TaxPro.com or Christy@Web-TaxPro.com, or call us at (971) 708-2045.'),
+            )
           ],
         ),
       ),
