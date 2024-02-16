@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeScreenState> {
-  HomeCubit() : super(HomeScreenState.landing);
+  HomeCubit() : super(HomeScreenState.services);
 
   void setLanding() {
     emit(HomeScreenState.landing);

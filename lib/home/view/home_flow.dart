@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_bbb/home/cubit/home_cubit.dart';
 import 'package:the_bbb/landing_page/desktop/my_home_page.dart';
 import 'package:the_bbb/landing_page/landing_page.dart';
-import 'package:the_bbb/services_page/desktop/services_page.dart';
+import 'package:the_bbb/services_page/desktop/my_service_page.dart';
 import 'package:the_bbb/services_page/services_page.dart';
 
 class HomeView extends StatelessWidget {
