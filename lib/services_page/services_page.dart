@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:the_bbb/services_page/desktop/services_page.dart';
+import 'package:the_bbb/services_page/desktop/my_service_page.dart';
 
 class ServicesPage extends StatelessWidget {
   const ServicesPage({super.key});
