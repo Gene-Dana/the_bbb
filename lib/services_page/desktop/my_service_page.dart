@@ -228,97 +228,95 @@ class _Second extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 32.0),
-      child: Container(
-        height: 1000,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Custom-Crafted Bookkeeping',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      fontSize: screenWidth * 0.05, // Dynamic font size
-                      color: const Color.fromARGB(255, 36, 73, 222),
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Custom-Crafted Bookkeeping',
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontSize: screenWidth * 0.05, // Dynamic font size
+                    color: const Color.fromARGB(255, 36, 73, 222),
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Ryan is a seasoned bookkeeping professional leading the industry with nearly two decades of unmatched accounting expertise. His career spans across an impressive array of sectors — hospitality, grocery, restaurants, and transportation — where he has masterfully handled accounts payable, accounts receivable, credit collections, and auditing. This broad and diverse background solidifies his standing as the go-to expert in adaptable and custom bookkeeping solutions.',
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    color: Colors.black,
-                    fontSize: screenWidth * 0.024), // Dynamic font size
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Ryan is a seasoned bookkeeping professional leading the industry with nearly two decades of unmatched accounting expertise. His career spans across an impressive array of sectors — hospitality, grocery, restaurants, and transportation — where he has masterfully handled accounts payable, accounts receivable, credit collections, and auditing. This broad and diverse background solidifies his standing as the go-to expert in adaptable and custom bookkeeping solutions.',
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  color: Colors.black,
+                  fontSize: screenWidth * 0.024), // Dynamic font size
             ),
-            Expanded(
-              // This ensures the Column's child takes the available space, giving it bounded constraints.
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    // Using Expanded to allow the text container to take up the space it needs
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        'Ryan and his son enjoy and reside in Portland, Oregon',
-                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                            fontSize: screenWidth * 0.024), // Dynamic font size
-                        textAlign: TextAlign.center,
-                      ),
+          ),
+          Expanded(
+            // This ensures the Column's child takes the available space, giving it bounded constraints.
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  // Using Expanded to allow the text container to take up the space it needs
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'Ryan and his son enjoy and reside in Portland, Oregon',
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          fontSize: screenWidth * 0.024), // Dynamic font size
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                  Flexible(
-                    // Using Flexible to handle images within bounded constraints
-                    flex:
-                        2, // Gives twice as much space to the images as to the text
-                    child: AspectRatio(
-                      aspectRatio:
-                          3 / 2, // Maintain the aspect ratio of the images
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Expanded(
-                            // Wrapping images with Expanded to ensure they fit within the Flexible widget
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                  'https://cdn.discordapp.com/attachments/826240853478604840/1206709578222280735/IMG_8212.jpeg?ex=65dcfedf&is=65ca89df&hm=a4a2c84f01e1985fa80bd823c28e28aaf51fa88fadedd36831e28167bde6f740&',
-                                  fit: BoxFit.cover,
-                                  width: 300,
-                                  height: 200,
-                                ),
+                ),
+                Flexible(
+                  // Using Flexible to handle images within bounded constraints
+                  flex:
+                      2, // Gives twice as much space to the images as to the text
+                  child: AspectRatio(
+                    aspectRatio:
+                        3 / 2, // Maintain the aspect ratio of the images
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          // Wrapping images with Expanded to ensure they fit within the Flexible widget
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                'https://cdn.discordapp.com/attachments/826240853478604840/1206709578222280735/IMG_8212.jpeg?ex=65dcfedf&is=65ca89df&hm=a4a2c84f01e1985fa80bd823c28e28aaf51fa88fadedd36831e28167bde6f740&',
+                                fit: BoxFit.cover,
+                                width: 300,
+                                height: 200,
                               ),
                             ),
                           ),
-                          Expanded(
-                            // Second image also wrapped with Expanded
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                  'https://imgs.search.brave.com/PKZxeXMXaJMQ3o1VhdhpjA7riWSutY0vceRLKQ8z7hM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTA5/NzAwMjM0L3Bob3Rv/L3BvcnRsYW5kLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1m/d0szTkFDWnNRRFJQ/N0VEdWRoemJVVmRu/OWo1b1VXQUhtWHlT/Qi1SQkZjPQ',
-                                  fit: BoxFit.cover,
-                                  width: 300,
-                                  height: 200,
-                                ),
+                        ),
+                        Expanded(
+                          // Second image also wrapped with Expanded
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.network(
+                                'https://imgs.search.brave.com/PKZxeXMXaJMQ3o1VhdhpjA7riWSutY0vceRLKQ8z7hM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTA5/NzAwMjM0L3Bob3Rv/L3BvcnRsYW5kLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1m/d0szTkFDWnNRRFJQ/N0VEdWRoemJVVmRu/OWo1b1VXQUhtWHlT/Qi1SQkZjPQ',
+                                fit: BoxFit.cover,
+                                width: 300,
+                                height: 200,
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -350,58 +348,51 @@ class _ServiceSection extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       // Instead of a fixed height, consider making it flexible based on content if possible
       // For a fixed height scenario, consider using MediaQuery to adjust dynamically if needed
-      child: Container(
-        height: 500,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              title,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 24.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            title,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 24.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height:
-                                100, // Consider if this needs to be dynamic based on content
-                            child: icon,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: textContainerWidth, // Use dynamic width
-                            child: Text(subtitle,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall!
-                                    .copyWith(
-                                        fontSize:
-                                            24)), // Consider making font size dynamic if necessary
-                          ),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height:
+                            100, // Consider if this needs to be dynamic based on content
+                        child: icon,
+                      ),
                     ),
-                    Flexible(
-                      // Use Flexible for the serviceList to allow it to expand within the available space
-                      child: serviceList,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: textContainerWidth, // Use dynamic width
+                        child: Text(subtitle,
+                            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                fontSize:
+                                    24)), // Consider making font size dynamic if necessary
+                      ),
                     ),
                   ],
                 ),
-              ),
-            )
-          ],
-        ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: serviceList,
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
