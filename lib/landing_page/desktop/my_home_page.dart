@@ -55,6 +55,13 @@ class MyHomePage extends StatelessWidget {
 
             title: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               NavElement(
+                  name: 'Home',
+                  selected: true,
+                  link: 'link',
+                  onPressed: () {
+                    context.read<HomeCubit>().setLanding();
+                  }),
+              NavElement(
                   name: 'Services',
                   selected: false,
                   link: 'link',

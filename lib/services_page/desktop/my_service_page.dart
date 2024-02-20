@@ -27,11 +27,18 @@ class MyServicesPage extends StatelessWidget {
         leadingWidth: 400,
         title: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           NavElement(
+              name: 'Home',
+              selected: false,
+              link: 'link',
+              onPressed: () {
+                context.read<HomeCubit>().setLanding();
+              }),
+          NavElement(
               name: 'Services',
               selected: true,
               link: 'link',
               onPressed: () {
-                context.read<HomeCubit>().setLanding();
+                context.read<HomeCubit>().setServices();
               }),
         ]),
         actions: const [
@@ -184,7 +191,7 @@ class _Opening extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      height: MediaQuery.of(context).size.height - 200,
+      height: MediaQuery.of(context).size.height - 150,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
