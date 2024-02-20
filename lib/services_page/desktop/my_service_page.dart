@@ -183,37 +183,43 @@ class _Opening extends StatelessWidget {
     // Obtain screen width for dynamic scaling
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            'Our Services & Expertise',
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  // Adjust font size dynamically based on screen width
-                  fontSize: screenWidth * 0.024, // Example dynamic scaling
-                  color: const Color.fromARGB(255, 36, 73, 222),
-                  fontWeight: FontWeight.bold,
-                ),
+    return Container(
+      height: 500,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Our Services & Expertise',
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    // Adjust font size dynamically based on screen width
+                    fontSize: screenWidth * 0.026, // Example dynamic scaling
+                    color: const Color.fromARGB(255, 36, 73, 222),
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            'Financial & Bookkeeping Services ',
-            // Further dynamic scaling for larger text
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: Colors.black,
-                fontSize: screenWidth * 0.07), // Larger text scaled dynamically
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Financial & Bookkeeping Services ',
+              // Further dynamic scaling for larger text
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: Colors.black,
+                  fontSize:
+                      screenWidth * 0.05), // Larger text scaled dynamically
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: MainBtn(title: 'Get Started', link: ''),
-          // You may also consider adjusting button sizes if necessary
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: MainBtn(title: 'Get Started', link: ''),
+            // You may also consider adjusting button sizes if necessary
+          )
+        ],
+      ),
     );
   }
 }
@@ -227,7 +233,7 @@ class _Second extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 32.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -249,72 +255,68 @@ class _Second extends StatelessWidget {
               'Ryan is a seasoned bookkeeping professional leading the industry with nearly two decades of unmatched accounting expertise. His career spans across an impressive array of sectors — hospitality, grocery, restaurants, and transportation — where he has masterfully handled accounts payable, accounts receivable, credit collections, and auditing. This broad and diverse background solidifies his standing as the go-to expert in adaptable and custom bookkeeping solutions.',
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   color: Colors.black,
-                  fontSize: screenWidth * 0.024), // Dynamic font size
+                  fontSize: screenWidth * 0.020), // Dynamic font size
             ),
           ),
-          Expanded(
-            // This ensures the Column's child takes the available space, giving it bounded constraints.
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  // Using Expanded to allow the text container to take up the space it needs
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'Ryan and his son enjoy and reside in Portland, Oregon',
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          fontSize: screenWidth * 0.024), // Dynamic font size
-                      textAlign: TextAlign.center,
-                    ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                // Using Expanded to allow the text container to take up the space it needs
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Ryan and his son enjoy and reside in Portland, Oregon',
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        fontSize: screenWidth * 0.024), // Dynamic font size
+                    textAlign: TextAlign.center,
                   ),
                 ),
-                Flexible(
-                  // Using Flexible to handle images within bounded constraints
-                  flex:
-                      2, // Gives twice as much space to the images as to the text
-                  child: AspectRatio(
-                    aspectRatio:
-                        3 / 2, // Maintain the aspect ratio of the images
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          // Wrapping images with Expanded to ensure they fit within the Flexible widget
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.network(
-                                'https://cdn.discordapp.com/attachments/826240853478604840/1206709578222280735/IMG_8212.jpeg?ex=65dcfedf&is=65ca89df&hm=a4a2c84f01e1985fa80bd823c28e28aaf51fa88fadedd36831e28167bde6f740&',
-                                fit: BoxFit.cover,
-                                width: 300,
-                                height: 200,
-                              ),
+              ),
+              Flexible(
+                // Using Flexible to handle images within bounded constraints
+                flex:
+                    2, // Gives twice as much space to the images as to the text
+                child: AspectRatio(
+                  aspectRatio: 3 / 2, // Maintain the aspect ratio of the images
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        // Wrapping images with Expanded to ensure they fit within the Flexible widget
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                              'https://cdn.discordapp.com/attachments/826240853478604840/1206709578222280735/IMG_8212.jpeg?ex=65dcfedf&is=65ca89df&hm=a4a2c84f01e1985fa80bd823c28e28aaf51fa88fadedd36831e28167bde6f740&',
+                              fit: BoxFit.cover,
+                              width: 300,
+                              height: 200,
                             ),
                           ),
                         ),
-                        Expanded(
-                          // Second image also wrapped with Expanded
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.network(
-                                'https://imgs.search.brave.com/PKZxeXMXaJMQ3o1VhdhpjA7riWSutY0vceRLKQ8z7hM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTA5/NzAwMjM0L3Bob3Rv/L3BvcnRsYW5kLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1m/d0szTkFDWnNRRFJQ/N0VEdWRoemJVVmRu/OWo1b1VXQUhtWHlT/Qi1SQkZjPQ',
-                                fit: BoxFit.cover,
-                                width: 300,
-                                height: 200,
-                              ),
+                      ),
+                      Expanded(
+                        // Second image also wrapped with Expanded
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                              'https://imgs.search.brave.com/PKZxeXMXaJMQ3o1VhdhpjA7riWSutY0vceRLKQ8z7hM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTA5/NzAwMjM0L3Bob3Rv/L3BvcnRsYW5kLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1m/d0szTkFDWnNRRFJQ/N0VEdWRoemJVVmRu/OWo1b1VXQUhtWHlT/Qi1SQkZjPQ',
+                              fit: BoxFit.cover,
+                              width: 300,
+                              height: 200,
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
@@ -346,6 +348,7 @@ class _ServiceSection extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(8.0),
+      // height: 100,
       // Instead of a fixed height, consider making it flexible based on content if possible
       // For a fixed height scenario, consider using MediaQuery to adjust dynamically if needed
       child: Column(
@@ -412,6 +415,7 @@ class _ServiceList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         ...services.map((service) => _ServiceTile(
               color: color,
@@ -450,11 +454,12 @@ class _ServiceTile extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Icon(Icons.check_circle_outline, color: color),
         ),
-        Expanded(
-          // Using Expanded instead of SizedBox with fixed width for responsiveness
+        Container(
+          width: screenWidth / 2 - 150,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: RichText(
+              softWrap: true,
               text: TextSpan(
                 children: [
                   TextSpan(
