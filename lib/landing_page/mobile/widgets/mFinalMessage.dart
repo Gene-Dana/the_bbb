@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:the_bbb/home/cubit/home_cubit.dart';
 import 'package:the_bbb/widgets/btns.dart';
 
 class mFinalMessage extends StatelessWidget {
@@ -40,7 +42,7 @@ class mFinalMessage extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(24.0),
                 child: SizedBox(
                   width: 700,
@@ -48,8 +50,12 @@ class mFinalMessage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child:
-                            mMainBtn(title: 'Explore Our Services', link: ''),
+                        child: mMainBtn(
+                          title: 'Explore Our Services',
+                          link: '',
+                          onPressed: () =>
+                              context.read<HomeCubit>().setServices(),
+                        ),
                       ),
                     ],
                   ),

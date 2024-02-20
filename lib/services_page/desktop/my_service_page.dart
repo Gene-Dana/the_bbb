@@ -184,7 +184,7 @@ class _Opening extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      height: 500,
+      height: MediaQuery.of(context).size.height - 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -210,7 +210,7 @@ class _Opening extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   color: Colors.black,
                   fontSize:
-                      screenWidth * 0.05), // Larger text scaled dynamically
+                      screenWidth * 0.07), // Larger text scaled dynamically
             ),
           ),
           Padding(
@@ -243,7 +243,7 @@ class _Second extends StatelessWidget {
             child: Text(
               'Custom-Crafted Bookkeeping',
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontSize: screenWidth * 0.05, // Dynamic font size
+                    fontSize: screenWidth * 0.04, // Dynamic font size
                     color: const Color.fromARGB(255, 36, 73, 222),
                     fontWeight: FontWeight.bold,
                   ),
@@ -260,6 +260,7 @@ class _Second extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
                 // Using Expanded to allow the text container to take up the space it needs
@@ -276,7 +277,7 @@ class _Second extends StatelessWidget {
               Flexible(
                 // Using Flexible to handle images within bounded constraints
                 flex:
-                    2, // Gives twice as much space to the images as to the text
+                    1, // Gives twice as much space to the images as to the text
                 child: AspectRatio(
                   aspectRatio: 3 / 2, // Maintain the aspect ratio of the images
                   child: Row(
@@ -347,7 +348,7 @@ class _ServiceSection extends StatelessWidget {
         screenWidth * 0.3; // Example: 30% of screen width
 
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(24.0),
       // height: 100,
       // Instead of a fixed height, consider making it flexible based on content if possible
       // For a fixed height scenario, consider using MediaQuery to adjust dynamically if needed

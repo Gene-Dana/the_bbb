@@ -37,10 +37,12 @@ class MainBtn extends StatelessWidget {
 }
 
 class mMainBtn extends StatelessWidget {
-  const mMainBtn({super.key, required this.title, required this.link});
+  const mMainBtn(
+      {super.key, required this.title, required this.link, this.onPressed});
 
   final String title;
   final String link;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,7 @@ class mMainBtn extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               textStyle: const TextStyle(fontSize: 12),
             ),
-            onPressed: () {},
+            onPressed: onPressed,
             child: Text(title,
                 style: Theme.of(context)
                     .textTheme
