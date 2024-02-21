@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:review_repository/review_repository.dart';
 
 import 'package:the_bbb/widgets/bloc_observer.dart';
-import 'package:the_bbb/home/view/home_flow.dart';
+import 'package:the_bbb/home/view/home_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,9 +31,9 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           textTheme: TextTheme(
             displayLarge: GoogleFonts.archivoBlack(
-              fontSize: 100,
-              color: Colors.white,
-            ),
+                fontSize: 100,
+                color: Colors.white,
+                fontWeight: FontWeight.w100),
             titleMedium: const TextStyle(
               fontSize: 48,
               fontWeight: FontWeight.bold,

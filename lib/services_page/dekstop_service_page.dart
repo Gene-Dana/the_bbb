@@ -1,3 +1,25 @@
+/*
+
+
+
+
+
+
+
+
+992-1280
+
+dynamic navbar lead width
+dynamic padding - fixed container size that's centered
+
+1280+
+
+fixed in center edges keep expanding
+
+
+
+*/
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,178 +27,145 @@ import 'package:the_bbb/widgets/btns.dart';
 import 'package:the_bbb/home/cubit/home_cubit.dart';
 import 'package:the_bbb/landing_page/desktop/my_home_page.dart';
 
-class MyServicesPage extends StatelessWidget {
-  const MyServicesPage({super.key});
+class DesktopServicesPage extends StatelessWidget {
+  const DesktopServicesPage({super.key});
 
-  static Page page() => const MaterialPage<void>(child: MyServicesPage());
+  static Page page() => const MaterialPage<void>(child: DesktopServicesPage());
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(1, 15, 48, 1),
-        toolbarHeight: 100,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 128.0),
-          child: InkWell(
-              onTap: () {
-                context.read<HomeCubit>().setLanding();
-              },
-              child: Image.asset('icon.png')),
-        ),
-        leadingWidth: 400,
-        title: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          NavElement(
-              name: 'Home',
-              selected: false,
-              link: 'link',
-              onPressed: () {
-                context.read<HomeCubit>().setLanding();
-              }),
-          NavElement(
-              name: 'Services',
-              selected: true,
-              link: 'link',
-              onPressed: () {
-                context.read<HomeCubit>().setServices();
-              }),
-        ]),
-        actions: const [
-          MainBtn(title: 'Contact Us', link: ''),
+    print('inDesktopServices');
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 32),
+      child: ListView(
+        children: [
+          const _Opening(),
+          const _Second(),
+          _ServiceSection(
+            title: 'Essential Bookkeeping Services',
+            subtitle:
+                'Providing the foundational financial support every business requires.',
+            icon: Image.asset('icon1.png'),
+            serviceList: _ServiceList(
+              color: Colors.blue,
+              services: [
+                Services(
+                  service: 'Bank & Credit Card Transaction Coding',
+                  descript:
+                      'Accurate categorization of bank and credit card transactions to ensure your financials are always up to date.',
+                ),
+                Services(
+                  service: 'Payroll Processing',
+                  descript:
+                      'Timely and compliant payroll processing to ensure your team is paid correctly and on time.',
+                ),
+                Services(
+                  service: 'Monthly Financial Reports',
+                  descript:
+                      'Regular insights into your financial health with comprehensive reports.',
+                ),
+              ],
+            ),
+          ),
+          _ServiceSection(
+            title: 'Advanced Bookkeeping Services',
+            subtitle:
+                'Elevate your financial operations with our expanded suite of services.',
+            icon: Image.asset('icon2.png'),
+            serviceList: _ServiceList(
+              color: Colors.pink,
+              services: [
+                Services(
+                  service: 'Weekly Reporting',
+                  descript:
+                      'Gain more frequent insights with detailed weekly financial summaries.',
+                ),
+                Services(
+                  service: 'Statement Reconciliations',
+                  descript:
+                      'Ensuring all your financial statements match up perfectly with your records.',
+                ),
+                Services(
+                  service: 'Month-end Close',
+                  descript:
+                      'Systematic completion of all accounting tasks to close your books every month.',
+                ),
+                Services(
+                  service: 'Advisory Services',
+                  descript:
+                      'Strategic insights with Key Performance Indicators (KPIs) and in-depth management reporting.',
+                ),
+              ],
+            ),
+          ),
+          _ServiceSection(
+            title: 'Complete Bookkeeping Services',
+            subtitle:
+                'Our most comprehensive package for businesses seeking full financial management.',
+            icon: Image.asset('icon3.png'),
+            serviceList: _ServiceList(
+              color: Colors.yellow,
+              services: [
+                Services(
+                  service: 'Cash Flow Forecasting',
+                  descript:
+                      'Project your companys cash flow to make informed business decisions.',
+                ),
+                Services(
+                  service: 'Job Costing',
+                  descript:
+                      'Detailed tracking and reporting on the costs associated with specific jobs or projects.',
+                ),
+                Services(
+                  service: 'Budgeting',
+                  descript:
+                      'Assistance in planning your financial budget to align with business goals.',
+                ),
+                Services(
+                  service: 'Systems Integration',
+                  descript:
+                      'Streamlining your accounting systems for maximum efficiency.',
+                ),
+                Services(
+                  service: 'Training',
+                  descript:
+                      'Equip your team with the knowledge to manage and understand your financial systems.',
+                ),
+                Services(
+                  service: 'Data Clean up & Catch Up',
+                  descript:
+                      'Address any backlogs in bookkeeping to bring your accounts up to date.',
+                ),
+              ],
+            ),
+          ),
+          _ServiceSection(
+            title: 'Specialized Support Services',
+            subtitle:
+                'Expert services to support unique business needs and compliance.',
+            icon: Image.asset('icon4.png'),
+            serviceList: _ServiceList(
+              color: Colors.red,
+              services: [
+                Services(
+                  service: 'Audit/Tax Support',
+                  descript:
+                      'Assistance during audits and tax season to ensure compliance and accuracy.',
+                ),
+                Services(
+                  service: 'Tax Preparation',
+                  descript:
+                      'Professional preparation of your business taxes to maximize returns and minimize liabilities.',
+                ),
+              ],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 24.0),
+            child: Text(
+                'For more detailed information on our service packages, please contact Ryan@Web-TaxPro.com or Christy@Web-TaxPro.com, or call us at (971) 708-2045.'),
+          )
         ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 128.0, vertical: 32),
-        child: ListView(
-          children: [
-            const _Opening(),
-            const _Second(),
-            _ServiceSection(
-              title: 'Essential Bookkeeping Services',
-              subtitle:
-                  'Providing the foundational financial support every business requires.',
-              icon: Image.asset('icon1.png'),
-              serviceList: _ServiceList(
-                color: Colors.blue,
-                services: [
-                  Services(
-                    service: 'Bank & Credit Card Transaction Coding',
-                    descript:
-                        'Accurate categorization of bank and credit card transactions to ensure your financials are always up to date.',
-                  ),
-                  Services(
-                    service: 'Payroll Processing',
-                    descript:
-                        'Timely and compliant payroll processing to ensure your team is paid correctly and on time.',
-                  ),
-                  Services(
-                    service: 'Monthly Financial Reports',
-                    descript:
-                        'Regular insights into your financial health with comprehensive reports.',
-                  ),
-                ],
-              ),
-            ),
-            _ServiceSection(
-              title: 'Advanced Bookkeeping Services',
-              subtitle:
-                  'Elevate your financial operations with our expanded suite of services.',
-              icon: Image.asset('icon2.png'),
-              serviceList: _ServiceList(
-                color: Colors.pink,
-                services: [
-                  Services(
-                    service: 'Weekly Reporting',
-                    descript:
-                        'Gain more frequent insights with detailed weekly financial summaries.',
-                  ),
-                  Services(
-                    service: 'Statement Reconciliations',
-                    descript:
-                        'Ensuring all your financial statements match up perfectly with your records.',
-                  ),
-                  Services(
-                    service: 'Month-end Close',
-                    descript:
-                        'Systematic completion of all accounting tasks to close your books every month.',
-                  ),
-                  Services(
-                    service: 'Advisory Services',
-                    descript:
-                        'Strategic insights with Key Performance Indicators (KPIs) and in-depth management reporting.',
-                  ),
-                ],
-              ),
-            ),
-            _ServiceSection(
-              title: 'Complete Bookkeeping Services',
-              subtitle:
-                  'Our most comprehensive package for businesses seeking full financial management.',
-              icon: Image.asset('icon3.png'),
-              serviceList: _ServiceList(
-                color: Colors.yellow,
-                services: [
-                  Services(
-                    service: 'Cash Flow Forecasting',
-                    descript:
-                        'Project your companys cash flow to make informed business decisions.',
-                  ),
-                  Services(
-                    service: 'Job Costing',
-                    descript:
-                        'Detailed tracking and reporting on the costs associated with specific jobs or projects.',
-                  ),
-                  Services(
-                    service: 'Budgeting',
-                    descript:
-                        'Assistance in planning your financial budget to align with business goals.',
-                  ),
-                  Services(
-                    service: 'Systems Integration',
-                    descript:
-                        'Streamlining your accounting systems for maximum efficiency.',
-                  ),
-                  Services(
-                    service: 'Training',
-                    descript:
-                        'Equip your team with the knowledge to manage and understand your financial systems.',
-                  ),
-                  Services(
-                    service: 'Data Clean up & Catch Up',
-                    descript:
-                        'Address any backlogs in bookkeeping to bring your accounts up to date.',
-                  ),
-                ],
-              ),
-            ),
-            _ServiceSection(
-              title: 'Specialized Support Services',
-              subtitle:
-                  'Expert services to support unique business needs and compliance.',
-              icon: Image.asset('icon4.png'),
-              serviceList: _ServiceList(
-                color: Colors.red,
-                services: [
-                  Services(
-                    service: 'Audit/Tax Support',
-                    descript:
-                        'Assistance during audits and tax season to ensure compliance and accuracy.',
-                  ),
-                  Services(
-                    service: 'Tax Preparation',
-                    descript:
-                        'Professional preparation of your business taxes to maximize returns and minimize liabilities.',
-                  ),
-                ],
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 24.0),
-              child: Text(
-                  'For more detailed information on our service packages, please contact Ryan@Web-TaxPro.com or Christy@Web-TaxPro.com, or call us at (971) 708-2045.'),
-            )
-          ],
-        ),
       ),
     );
   }
@@ -191,33 +180,32 @@ class _Opening extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      height: MediaQuery.of(context).size.height - 150,
+      padding: const EdgeInsets.symmetric(vertical: 96),
+      height: MediaQuery.of(context).size.height - 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
               'Our Services & Expertise',
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
                     // Adjust font size dynamically based on screen width
-                    fontSize: screenWidth * 0.026, // Example dynamic scaling
+                    fontSize: 36, // Example dynamic scaling
                     color: const Color.fromARGB(255, 36, 73, 222),
-                    fontWeight: FontWeight.bold,
+                    // fontWeight: FontWeight.bold,
                   ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              'Financial & Bookkeeping Services ',
+              'Financial and Bookkeeping Services',
               // Further dynamic scaling for larger text
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
                   color: Colors.black,
-                  fontSize:
-                      screenWidth * 0.07), // Larger text scaled dynamically
+                  fontSize: 80), // Larger text scaled dynamically
             ),
           ),
           Padding(

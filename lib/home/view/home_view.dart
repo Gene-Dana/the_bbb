@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_bbb/home/cubit/home_cubit.dart';
 import 'package:the_bbb/landing_page/desktop/my_home_page.dart';
 import 'package:the_bbb/landing_page/landing_page.dart';
-import 'package:the_bbb/services_page/desktop/my_service_page.dart';
+import 'package:the_bbb/services_page/dekstop_service_page.dart';
 import 'package:the_bbb/services_page/services_page.dart';
+import 'package:the_bbb/widgets/btns.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -22,18 +23,20 @@ class HomeFlow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlowBuilder<HomeScreenState>(
-      state: context.select((HomeCubit cubit) => cubit.state),
-      onGeneratePages: (HomeScreenState state, List<Page> pages) {
-        switch (state) {
-          case HomeScreenState.landing:
-            return [LandingPage.page()];
-          case HomeScreenState.services:
-            return [ServicesPage.page()];
-          default:
-            return [LandingPage.page()];
-        }
-      },
+    return Scaffold(
+      body: FlowBuilder<HomeScreenState>(
+        state: context.select((HomeCubit cubit) => cubit.state),
+        onGeneratePages: (HomeScreenState state, List<Page> pages) {
+          switch (state) {
+            case HomeScreenState.landing:
+              return [LandingPage.page()];
+            case HomeScreenState.services:
+              return [ServicesPage.page()];
+            default:
+              return [LandingPage.page()];
+          }
+        },
+      ),
     );
   }
 }

@@ -20,6 +20,7 @@ class MyHomePage extends StatelessWidget {
         slivers: <Widget>[
           SliverAppBar(
             // stretch: _stretch,
+            flexibleSpace: Placeholder(),
 
             onStretchTrigger: () async {
               // Triggers when stretching
